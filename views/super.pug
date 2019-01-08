@@ -1,0 +1,264 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='shortcut icon', href='img/favicon.png')
+    title Admin
+    // Bootstrap CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // bootstrap theme
+    link(href='css/bootstrap-theme.css', rel='stylesheet')
+    // external css
+    // font icon
+    link(href='css/elegant-icons-style.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    // Custom styles
+    link(href='css/style.css', rel='stylesheet')
+    link(href='css/style-responsive.css', rel='stylesheet')
+    link(href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css', rel='stylesheet', type='text/css')
+    link(href='https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css', rel='stylesheet', type='text/css')
+  style.
+    .find{
+      display:none;
+    }
+    table tr td
+    {
+    background:white;
+    }
+    .table
+    {
+    margin-bottom:0px !important;
+    }
+  body
+    // container section start
+    section#container
+      // header start
+      header.header.dark-bg-2
+        // logo start
+        a.logo(href='index.html')
+          img.img.img-thumbnail(src='https://www.digitalgujarat.gov.in/LoginApp/images/logo.png')
+        // logo end
+        #top_menu.nav.search-row
+          // search form start
+          //
+            <ul class="nav top-menu">
+            <li>
+            <form class="navbar-form">
+            <input class="form-control" placeholder="Search" type="text">
+            </form>
+            </li>
+            </ul>
+          // search form end
+        .top-nav.notification-row
+          // notificatoin dropdown start
+          ul.nav.pull-right.top-menu
+            // alert notification start
+            li#alert_notificatoin_bar.dropdown
+              a(href='notifications.php')
+                i.icon-bell-l
+                span.badge.bg-important 7
+            // alert notification end
+            // user login dropdown start
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.profile-ava
+                  img(alt='', src='img/admin-icon.png', width='30px', height='30px')
+                span.username Mandal Officer
+                b.caret
+              ul.dropdown-menu.extended.logout
+                .log-arrow-up
+                li
+                  a(href='adminlogout')
+                    i.icon_key_alt
+                    |  Log Out
+            // user login dropdown end
+          // notificatoin dropdown end
+      // header end
+      // main content start
+      section#main-content
+        section.wrapper
+          // page start
+          // content will start here
+          .col-md-offset-3.col-md-6
+            form
+              br
+              br
+              .input-group
+                span(style='border:1px solid grey')#basic-addon1.input-group-addon
+                  i.fa.fa-search(style='font-size: 20px; color:grey', aria-hidden='true')
+                input#No.form-control(type='text', placeholder='Start typing adhaar number', style='border:1px solid grey')
+            br
+            br
+            br
+            br
+        script(src='js/ocrad.js')
+        script(src='js/image_read.js')
+    div.col-md-12.user_adhar_details
+      div.col-md-6.pull-left.bg-success
+        input#picker(type='file', onchange='load_file()')
+        #main
+          #nose
+            p No file loaded
+            p(style='font-size: 25px')  Open a file first 
+            p(style='font-size: 15px') it's okay. I'll wait. 
+            p(style='font-size: 10px') no seriously, I can't move
+            p(style='font-size: 8px') still waiting...
+          div.hide#transcription(style='display:none')
+          .clearfix
+      div.col-md-6.pull-left(style='background:#ddd')
+        div.col-md-12.col-xs-12#userData(style='display:none')
+          h2.text-primary.text-center
+            | User Details
+          br
+          div.table-responsive
+            table.table.table-stripped.table-bordered.table.hover
+              tr
+                th
+                  | Name
+                td
+                  span#name
+              tr
+                th
+                  | Father
+                td
+                  span#father
+              tr
+                th
+                  | Village
+                td
+                  span#village
+              tr
+                th
+                  | Mandal
+                td
+                  span#Mandal
+              tr
+                th
+                  | Phone
+                td
+                  span#phone
+              tr
+                th
+                  | Caste
+                td
+                  span#caste
+              tr
+                th
+                  | Pincode
+                td
+                  span#pin
+          br
+    .find.col-md-4.col-md-offset-2
+      .col-md-12
+        .row
+          .table-responsive(style="border:1px solid black; margin-bottom:0px !important;height:455px")
+            table.table-bordered.table
+              tbody
+                tr 
+                  td
+                    img#Certificate.img-thumbnail(src="",style='height:125% !important')
+                
+      div.hidden-md.hidden-lg
+        br
+      .find.col-md-4
+        .col-md-12
+          .row
+            .table-responsive(style="border:1px solid black; margin-bottom:0px !important;")
+              table.table-bordered.table
+                tbody
+                  tr
+                    td 
+                      label Picture
+                    td(style='background:white', align='center')
+                      img#fileName(src='', height='100px', width='100px')
+                  tr 
+                    td
+                      label(style='margin-right:15%')#name Unique Id:
+                    td
+                      label#_id
+                  tr
+                    
+                    td
+                      label#name Aadhaar No:
+                    td
+                      label#adhaar
+                  tr
+                    td
+                      label#name Mobile No:
+                    td
+                      label#mobile
+                  tr
+                    td
+                      label#name Name:
+                    td
+                      label#name1
+                  tr
+                    td
+                      label#name Father Name:
+                    td
+                      label#father
+                  tr
+                    td
+                      label#name Mother Name:
+                    td
+                      label#mother
+                  tr
+                    td
+                      label#name Address:
+                    td
+                      label#address
+                  tr
+                    td
+                      label#name District:
+                    td
+                      label#district
+          // content will end here
+          // page end
+      // main content end
+      div.clearfix
+      br
+      footer.dark-bg.navbar-fixed-bottom(style='background: #046;width:100%')
+        .text-center
+          .credits
+            a(href='technicalhub.io',style='color:#fff !important') Copyright © TEAM#SIX| All right reserved.
+      div.clearfix
+    // container section end
+    // javascripts
+    script(src='js/jquery.js')
+    script(src='js/bootstrap.min.js')
+    // nice scroll
+    script(src='js/jquery.scrollTo.min.js')
+    script(src='js/jquery.nicescroll.js', type='text/javascript')
+    // custome script for all page
+    script(src='js/scripts.js')
+    script(src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js')
+    script(src='https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js')
+    script(src='https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js')
+    script.
+      $('#No').keyup(function(){
+      var No=$('#No').val();
+      $.post('/findcertificate',{No:No},function(data,textStatus,jqXHR){
+      document.getElementById("name1").innerHTML = data[0].name;
+      document.getElementById("Certificate").src = 'certi/'+data[0].Certificate+'.jpg';
+      document.getElementById("fileName").src = 'userImage/'+data[0].fileName;
+      document.getElementById("adhaar").innerHTML = data[0].adhaar;
+      document.getElementById("mobile").innerHTML = data[0].mobile;
+      document.getElementById("_id").innerHTML = data[0]._id;
+      document.getElementById("father").innerHTML = data[0].father;
+      document.getElementById("mother").innerHTML = data[0].mother;
+      document.getElementById("address").innerHTML = data[0].address;
+      document.getElementById("district").innerHTML = data[0].district;
+      });
+        if(No!=''){
+          $('.user_adhar_details').css('display','none');
+          $(".find").show();
+        }
+        else{
+          $('.user_adhar_details').css('display','block');
+          $(".find").hide();
+        }
+      });

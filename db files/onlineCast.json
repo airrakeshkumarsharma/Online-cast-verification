@@ -1,0 +1,16 @@
+{ 
+    "_id" : ObjectId("5ab79abdd4746517505a0f01"), 
+    "adhaar" : "55555", 
+    "first_name" : "Rakesh kumar", 
+    "last_name" : "sharma", 
+    "email" : "airrakeshkumarsharma@gmail.com", 
+    "phone" : "9401474790", 
+    "address" : "surempalam", 
+    "city" : "kakinada", 
+    "state" : "Gujrat", 
+    "zip_code" : "533437", 
+    "picture" : "Standee_bg (1).jpg", 
+    "gender" : "Male", 
+    "dob" : "2006-12-31", 
+    "status" : "verified"
+}

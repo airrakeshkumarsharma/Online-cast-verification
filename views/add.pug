@@ -1,0 +1,49 @@
+form(action='#', method='post')
+  .input-group
+    span.input-group-addon
+      img(src='https://image.winudf.com/v2/image/Y29tLmFkaGFycHJpbnRfaWNvbl8wX2U2ODM4Mzcz/icon.png?w=170&fakeurl=1&type=.png', width='10px', height='10px')
+    input#text.form-control(type='text', title='Enter Adhaar number', name='adhaar', placeholder='Adhaar')
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-mobile
+    input#text.form-control(type='text', name='mobile', placeholder='mobile')
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-user
+    input#text.form-control(type='text', name='name', placeholder='name')
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-male
+    input#text.form-control(type='text', name='fatherName', placeholder="father's Name")
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-female
+    input#text.form-control(type='text', name='MotherName', placeholder="mother's Name")
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-address-card-o
+    input#text.form-control(type='text', name='address', placeholder='address')
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-map
+    input#text.form-control(type='text', name='district', placeholder='district')
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-file
+    input#file.form-control(type='file', name='file', title='picture of user', placeholder='file')
+  br
+  .input-group
+    span.input-group-addon
+      i.fa.fa-file
+    input#file.form-control(type='file', name='file', title='certificate in pdf', placeholder='file')
+  .form-group
+    input.form-control.btn.btn-success.block(type='submit', name='')
+  br
+  #msg

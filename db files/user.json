@@ -1,0 +1,11 @@
+{ 
+    "_id" : ObjectId("5aab78220f350a0e8c6df18f"), 
+    "adhaar" : "987654321", 
+    "user" : "sid", 
+    "email" : "sandeepsiva@aec.edu.in", 
+    "mobile" : "7893666676", 
+    "dob" : "1993-07-21", 
+    "password" : "123", 
+    "logintime" : "25-03-2018, 03:14:23 pm", 
+    "logouttime" : "25-03-2018, 09:42:18 pm"
+}

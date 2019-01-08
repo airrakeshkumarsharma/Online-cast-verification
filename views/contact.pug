@@ -1,0 +1,82 @@
+doctype html
+html
+  head
+    title Contact
+    meta(charset='utf-8')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body(style='background:radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(19, 80, 88, 1) 100%)')
+    nav.navbar.navbar-default(style='background-color: rgb(38, 77, 115);')
+      .container-fluid(style='height: 80px;')
+        .navbar-brand
+          a.col-md-offset-2(href='index.html')
+            img(src='https://www.digitalgujarat.gov.in/images/logo.png', style='background-color: white; border-radius: 5px;')
+        ul.nav.navbar-nav.navbar-right(style='padding-top: 15px; padding-right: 50px;')
+          li
+            a(href='/index', style='color: white;') Home
+    .col-md-12(style='border-radius: 5px;')
+      .col-md-8.col-md-offset-2.jambotron
+        .col-md-12
+          h1.text-center(style='color: #fff;font-weight: 400') Contact Us
+          .col-md-4.text-center
+            h3
+              b.text-center.fa.fa-envelope  Email
+            span tester@gmail.com
+          .col-md-4.text-center
+            h3
+              b.text-center.fa.fa-map-marker  Address
+            span Near tester location testing street
+          .col-md-4.text-center
+            h3
+              b.text-center.fa.fa-phone  Phone
+            span 1234567890
+          .clearfix
+          br
+          br
+          br
+          br
+        div
+          center
+            h2 Feed Back
+          form(method='post')
+            .form-group
+              label(for='name') Name:
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-address-card
+                .row
+                  .col-sm-6
+                    input#name.form-control(type='text', name='name', placeholder='First Name')
+                  .col-sm-6
+                    input#Sname.form-control(type='text', name='name', placeholder='Second Name')
+            .form-group
+              label(for='email') Em@il:
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-envelope
+                input#email.form-control(type='email', name='email', placeholder='User Name')
+            .form-group
+              label(for='phone') Phone No.:
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-phone
+                input#phone.form-control(type='text', name='phone', placeholder='Phone Number')
+            .form-group
+              label(for='feedback') Feed Back:
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-file-text
+                input#feedback.form-control(type='text', name='feedback', placeholder='Feed Back here!!!', style='height: 200px;')
+            .col-md-12
+              button.btn.btn-lg(style='padding: 0 20px;') Submit
+          .clearfix
+    .clearfix
+    br
+    .row.navbar-fixed-bottom(style='width: 100%;height: 20px; background-color: gray;')
+      .col-sm-12
+        center
+          footer
+            | All rights reserved © SIH2K18

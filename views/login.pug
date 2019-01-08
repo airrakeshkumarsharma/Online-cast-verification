@@ -1,0 +1,226 @@
+doctype html
+html.no-js
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Gujrat
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    // Fonts
+    // Lato
+    link(rel='stylesheet', type='text/css', href='css/capt.css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:400,300,700', rel='stylesheet', type='text/css')
+    script(type='text/javascript', src='js/capt.js')
+    // CSS
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/font-awesome.min.css')
+    link(rel='stylesheet', href='css/owl.carousel.css')
+    link(rel='stylesheet', href='css/animate.css')
+    link(rel='stylesheet', href='css/main.css')
+    link(rel='stylesheet', href='css/login.css')
+    // Responsive Stylesheet
+    link(rel='stylesheet', href='css/responsive.css')
+  #particles-js
+  body#body.login(onload='ChangeCaptcha();')
+    #preloader
+      .book
+        .book__page
+        .book__page
+        .book__page
+    //
+      Header start
+      ====================
+    #navigation.navbar-default.navbar-fixed-top(style='background: #046')
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+            img.logo-1.img-thumbnail(src='https://www.digitalgujarat.gov.in/images/logo.png', alt='LOGO')
+            img.logo-2.img-thumbnail(src='https://www.digitalgujarat.gov.in/images/logo.png', alt='LOGO')
+        // Collect the nav links, forms, and other content for toggling
+        nav#navbar.collapse.navbar-collapse
+          ul#top-nav.nav.navbar-nav.navbar-right
+            li.current
+              a(href='#') Home
+            li
+              a(href='about')
+                i.fa.fa-sliders-h
+                |  About us
+            li
+              a(href='services') Services
+            li
+              a(href='#') Login
+            li
+              a(href='contact') Contact
+        // /.navbar-collapse
+      // /.container-fluid
+    // Login forms started here
+    .container.section
+      .container-fluid
+        ul.nav.nav-tabs
+          li.active
+            a(data-toggle='tab', href='#home') Public / Users
+          li
+            a(data-toggle='tab', href='#menu1') Admin
+          li
+            a(data-toggle='tab', href='#menu2') Office / Super Admin
+        .tab-content
+          #home.tab-pane.fade.in.active
+            .col-md-8
+              .login-container-wrapper.clearfix
+                .logo
+                  i.fa.fa-sign-in
+                .welcome
+                  strong Welcome,
+                  |  please login
+                form.form-horizontal.login-form.input-focus(action='user', method='post')
+                  .form-group.relative
+                    input#login_username.form-control.input-lg(type='email', name='email', placeholder='email', required='')
+                    i.fa.fa-user
+                  .form-group.relative.password
+                    input#login_password.form-control.input-lg(type='password', name='password', placeholder='Password', required='')
+                    i.fa.fa-lock
+                  .form-group.relative
+                    input#randomfield.form-control.input-lg(type='text', placeholder='Capture', disabled='')
+                  .form-group.relative
+                    input#CaptchaEnter.form-control.input-lg(type='text', placeholder='Capture here', size='20', maxlength='6')
+                    i.fa.fa-camera
+                  .form-group
+                    button.btn.btn-success.btn-lg.btn-block(type='submit', onclick='check()') Login
+                  center
+                    .checkbox.pull-left
+                      label
+                        input.forget(type='button', name='', data-toggle='modal', data-target='#myModal1', title='new User', value='New User registration')
+                    .checkbox.pull-right
+                      label
+                        input.forget(type='button', name='', data-toggle='modal', data-target='#myModal', title='new User', value='forgot password')
+            // //////////////////////////////////////////////////////////////////////////////////////////////////
+            #myModal1.modal.fade(role='dialog')
+              .modal-dialog
+                // Modal content
+                .modal-content
+                  .modal-header
+                    img(src='https://www.digitalgujarat.gov.in/images/logo.png')
+                    button.close(type='button', data-dismiss='modal') ×
+                    center
+                      h3 New Registration
+                  .modal-body
+                    form.signup(action='userSignUp', method='POST')
+                      ul.singup-list
+                        li.signup-item
+                          label#adhaarCard Please enter new adhaar details
+                        li.signup-item
+                          input.signup-input(type='text', placeholder='Adhaara card', name='adhaar', required)
+                          label.signup-label Adhaar card 
+                        li.signup-item
+                          input.signup-input(type='text', placeholder='name', name='userName' required)
+                          label.signup-label Name
+                        li.signup-item
+                          input.signup-input(type='email', placeholder='user@gmail.com', name='email' required)
+                          label.signup-label Email
+                        li.signup-item
+                          input.signup-input(type='text', placeholder='1234567890', max='10', name='mob' required)
+                          label.signup-label Mobile
+                        li.signup-item
+                          input#dateOfBirth.signup-input(type='date', placeholder='dd/mm/yy', name='dob' required)
+                          label.signup-label DOB
+                        li.signup-item
+                          input.signup-input(type='password', placeholder='*******', name='paswd' required)
+                          label.signup-label Password
+                        li.signup-item
+                          input.signup-submit(type='submit', value='Submit form')
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+            // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+            #myModal.modal.fade(role='dialog')
+              .modal-dialog
+                // Modal content
+                .modal-content
+                  .modal-header
+                    img(src='https://www.digitalgujarat.gov.in/images/logo.png')
+                    button.close(type='button', data-dismiss='modal') ×
+                  .modal-body
+                    center
+                      h2.modal-body Forgot password
+                    form.signup(action='forgot', method='post')
+                      ul.singup-list
+                        li.signup-item
+                          input.signup-input(type='text', placeholder='Adhaara card', name='adhaar' required='required')
+                          label.signup-label(for='adhaar card') Adhaar card
+                        li.signup-item
+                          input.signup-input(type='email', placeholder='Email', name='email', required='required')
+                          label.signup-label(for='email') Email
+                        li.signup-item
+                          input.signup-submit(type='submit', value='Submit form')
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+            // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+            .col-md-4.section
+          #menu1.tab-pane.fade.section
+            .container_new
+              .row
+                .col-md-8.col-md-offset-2.col-sm-12
+                  .form
+                    form(action='adminpage', method='post')
+                      h3.text-center.text-primary Welcome back!
+                      br
+                      br
+                      .input-group.col-md-8.col-md-offset-2
+                        input.input.email(type='text', name='username', autocomplete='off')
+                        label Username
+                      .input-group.col-md-8.col-md-offset-2
+                        input.input.password(type='password', name='password')
+                        label Password
+                      .input-group.col-md-offset-6
+                        .col-md-4
+                          input.button.new_btn.btn-success(type='submit', value='LOGIN')
+          #menu2.tab-pane.fade.section
+            .container_new
+              .row
+                .col-md-8.col-md-offset-2.col-sm-12
+                  .form
+                    form(action='super', method='post')
+                      h3.text-center.text-primary Welcome back Sumper Admin!
+                      br
+                      br
+                      .input-group.col-md-8.col-md-offset-2
+                        input.input.email(type='text', name='super_username', autocomplete='off')
+                        label Username
+                      .input-group.col-md-8.col-md-offset-2
+                        input.input.password(type='password', name='super_password')
+                        label Password
+                      .input-group.col-md-offset-6
+                        .col-md-4
+                          input.button.new_btn.btn-success(type='submit', value='LOGIN')
+          #menu3.tab-pane.fade
+            h3 Menu 3
+            p
+              | Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    // Login forms Ended here
+    footer.navbar-fixed-bottom
+      .container
+        .row
+          .col-md-12
+            .block
+              p
+                | Copyright © 
+                a(href='http://www.i4c.in') Hackathon
+                | | All right reserved.
+    // Js
+    script(src='js/vendor/modernizr-2.6.2.min.js')
+    script(src='js/vendor/jquery-1.10.2.min.js')
+    script(src='js/jquery.lwtCountdown-1.0.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/owl.carousel.min.js')
+    script(src='js/jquery.validate.min.js')
+    script(src='js/jquery.form.js')
+    script(src='js/jquery.nav.js')
+    script(src='js/jquery.sticky.js')
+    script(src='js/plugins.js')
+    script(src='js/wow.min.js')
+    script(src='js/main.js')

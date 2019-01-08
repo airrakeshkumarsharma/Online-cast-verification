@@ -1,0 +1,153 @@
+doctype html
+html.no-js
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title new
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    // Fonts
+    // Lato
+    link(rel='stylesheet', type='text/css', href='../css/update.css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:400,300,700', rel='stylesheet', type='text/css')
+    //link(rel='stylesheet', href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+    script(type='text/javascript', src='../js/capt.js')
+    // CSS
+    link(rel='stylesheet', href='../css/bootstrap.min.css')
+    link(rel='stylesheet', href='../css/font-awesome.min.css')
+    link(rel='stylesheet', href='../css/owl.carousel.css')
+    link(rel='stylesheet', href='../css/animate.css')
+    link(rel='stylesheet', href='../css/main.css')
+    link(rel='stylesheet', href='../css/login.css')
+    // Responsive Stylesheet
+    link(rel='stylesheet', href='../css/responsive.css')
+  #particles-js
+  body#body.login(onload='ChangeCaptcha();')
+    #preloader
+      .book
+        .book__page
+        .book__page
+        .book__page
+    //
+      Header start
+      ====================
+    #navigation.navbar-default.navbar-fixed-top(style='background: #046')
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+            img.logo-1.img-thumbnail(src='https://www.digitalgujarat.gov.in/images/logo.png', alt='LOGO')
+            img.logo-2.img-thumbnail(src='https://www.digitalgujarat.gov.in/images/logo.png', alt='LOGO')
+        // Collect the nav links, forms, and other content for toggling
+        nav#navbar.collapse.navbar-collapse
+          ul#top-nav.nav.navbar-nav.navbar-right
+            li.current
+              a(href='#body') Home
+            li
+              a(href='#contact') Contact
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.profile-ava
+                  img(alt='', src='img/admin-icon.png', width='30px', height='30px')
+                span.username #{user.user}
+                b.caret
+              ul.dropdown-menu.extended.logout
+                .log-arrow-up
+                li
+                  a(href='/logout')
+                    i.icon_key_alt
+                    |  Log Out
+        // /.navbar-collapse
+      // /.container-fluid
+    // Login forms started here
+    .container.section
+      .container-fluid
+        .col-md-4
+        .col-md-4
+          br
+          br
+          .jumbotron
+            center
+              img(src='https://www.digitalgujarat.gov.in/images/logo.png', alt='logo')
+            br
+            br
+            b.text-center
+              h2 Fill Caste Certificate
+            br
+            form(action='/fillCaste', method='POST', enctype='multipart/form-data')
+            .input-group
+              span.input-group-addon
+                img(src='https://image.winudf.com/v2/image/Y29tLmFkaGFycHJpbnRfaWNvbl8wX2U2ODM4Mzcz/icon.png?w=170&fakeurl=1&type=.png', width='10px', height='10px')
+              input#text.form-control(type='text', title='Enter Adhaar number', name='adhaar', placeholder='Adhaar', required)
+            br
+            .input-group
+              span.input-group-addon
+                i.fa.fa-mobile
+              input#text.form-control(type='text', name='mobile', placeholder='mobile',  required)
+            br
+            .input-group
+              span.input-group-addon
+                i.fa.fa-user
+              input#text.form-control(type='text', name='name', placeholder='name',  required)
+            br
+            .input-group
+              span.input-group-addon
+                i.fa.fa-male
+              input#text.form-control(type='text', name='fatherName', placeholder="father's Name",  required)
+            br
+            .input-group
+              span.input-group-addon
+                i.fa.fa-female
+              input#text.form-control(type='text', name='MotherName', placeholder="mother's Name",  required)
+            br
+            .input-group
+              span.input-group-addon
+                i.fa.fa-address-card-o
+              input#text.form-control(type='text', name='address', placeholder='address',  required)
+            br
+            .input-group
+              span.input-group-addon
+                i.fa.fa-map
+              input#text.form-control(type='text', name='district', placeholder='district', required)
+            br
+            .input-group
+              span.input-group-addon
+                i.fa.fa-image
+              input#file.form-control(type='file', name='image', title='picture of user', required)
+            .form-group
+              input.form-control.btn.btn-warning.block(type='submit', name='', onclick='upload()', value=Submit, required)
+            br
+            #msg
+    .col-md-4
+      p
+    // Login forms Ended here
+    footer.navbar-fixed-bottom
+      .container
+        .row
+          .col-md-12
+            .block
+              p
+                | Copyright © 
+                a(href='http://www.i4c.in') Hackathon
+                | | All right reserved.
+    // Js
+    script(src='../js/vendor/modernizr-2.6.2.min.js')
+    script(src='../js/vendor/jquery-1.10.2.min.js')
+    script(src='../https://maps.googleapis.com/maps/api/js?sensor=false')
+    script(src='../js/jquery.lwtCountdown-1.0.js')
+    script(src='../js/bootstrap.min.js')
+    script(src='../js/owl.carousel.min.js')
+    script(src='../js/jquery.validate.min.js')
+    script(src='../js/jquery.form.js')
+    script(src='../js/jquery.nav.js')
+    script(src='../js/jquery.sticky.js')
+    script(src='../js/plugins.js')
+    script(src='../js/wow.min.js')
+    script(src='../js/main.js')
+    script(src='/javascripts/service.js')

@@ -1,0 +1,16 @@
+{ 
+    "_id" : ObjectId("5ab7c3b114e5111f2c5e47b3"), 
+    "adhaar" : "55555", 
+    "first_name" : "rakesh", 
+    "last_name" : "sharma", 
+    "email" : "rkpranjalsharma@gmail.com", 
+    "phone" : "9401474790", 
+    "address" : "C/o-minakhi enterprise, panjabari batahghuli bagarital laxminagar path", 
+    "city" : "guwahati", 
+    "state" : "Gujrat", 
+    "zip_code" : "781037", 
+    "picture" : "Standee_bg (1).jpg", 
+    "gender" : "Male", 
+    "dob" : "2018-02-26", 
+    "status" : "verified"
+}

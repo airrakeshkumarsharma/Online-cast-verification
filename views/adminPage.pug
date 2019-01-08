@@ -1,0 +1,755 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='shortcut icon', href='img/favicon.png')
+    title Admin
+    // Bootstrap CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // bootstrap theme
+    link(href='css/bootstrap-theme.css', rel='stylesheet')
+    // external css
+    // font icon
+    link(href='css/elegant-icons-style.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    // Custom styles
+    link(href='css/style.css', rel='stylesheet')
+    link(href='css/style-responsive.css', rel='stylesheet')
+    link(href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css', rel='stylesheet', type='text/css')
+    link(href='https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css', rel='stylesheet', type='text/css')
+    //chart js link
+    link(rel='stylesheet', href='https://www.amcharts.com/lib/3/plugins/export/export.css', type='text/css', media='all')
+  style.
+    #chartdiv {
+    width: 100%;
+    height: 500px;
+    }
+  body
+    // container section start
+    section#container
+      // header start
+      header.header.dark-bg-2
+        .toggle-nav
+          .icon-reorder.tooltips(data-original-title='Toggle Navigation', data-placement='bottom')
+            i.icon_menu
+        // logo start
+        a.logo(href='index.html')
+          img.img.img-thumbnail(src='https://www.digitalgujarat.gov.in/LoginApp/images/logo.png')
+        // logo end
+        #top_menu.nav.search-row
+          // search form start
+          //
+            <ul class="nav top-menu">
+            <li>
+            <form class="navbar-form">
+            <input class="form-control" placeholder="Search" type="text">
+            </form>
+            </li>
+            </ul>
+          // search form end
+        .top-nav.notification-row
+          // notificatoin dropdown start
+          ul.nav.pull-right.top-menu
+            // alert notification start
+            li#alert_notificatoin_bar.dropdown
+              a(href='notifications.php')
+                i.icon-bell-l
+                span.badge.bg-important 7
+            // alert notification end
+            // user login dropdown start
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.profile-ava
+                  img(alt='', src='img/admin-icon.png', width='30px', height='30px')
+                span.username #{user1.username}
+                b.caret
+              ul.dropdown-menu.extended.logout
+                .log-arrow-up
+                li
+                  a(href='adminlogout')
+                    i.icon_key_alt
+                    |  Log Out
+            // user login dropdown end
+          // notificatoin dropdown end
+      // header end
+      // sidebar start
+      aside
+        #sidebar.nav-collapse
+          // sidebar menu start
+          ul.sidebar-menu
+            li.active
+              a(data-toggle='pill', href='#dashboard')
+                i.icon_house_alt
+                span Dashboard
+            // Record menu bar
+            li
+              a(data-toggle='pill', href='#Records')
+                i.icon_document_alt
+                span Records
+            li
+              a(data-toggle='pill', href='#NewEntry')
+                i.fa.fa-edit
+                span Add New Entry
+            li.sub-menu
+              a(data-toggle='pill', href='#upload')
+                i.icon_upload
+                span Upload
+            li.sub-menu
+              a(data-toggle='pill', href='#edit')
+                i.icon_pencil
+                span Edit
+            li.sub-menu
+              a(data-toggle='pill', href='#userrequest')
+                i.fa.fa-bullhorn
+                span New Request
+          // sidebar menu end
+      // sidebar end
+      // main content start
+      section#main-content
+        section.wrapper
+          // page start
+          // content will start here
+          .tab-content
+            #dashboard.tab-pane.fade.in.active
+              div.col-md-12.col-sm-12
+                a(data-toggle='pill', href='#Records')
+                  div#RecordId.col-md-3.col-sm-6.col-xs-10.col-md-offset-1
+                    h2.fa.fa-book 
+                    | &nbsp;Records
+                a(data-toggle='pill', href='#NewEntry')
+                  div#AddNewId.col-md-3.col-sm-6.col-xs-10.col-md-offset-1
+                    h2.fa.fa-edit 
+                    | &nbsp;ADD NEW
+                a(data-toggle='pill', href='#userrequest') 
+                  div#NewRequestId.col-md-3.col-sm-6.col-xs-10.col-md-offset-1
+                    h2.fa.fa-globe 
+                    | &nbsp;New Request
+              div.col-md-12
+                div#chartdiv
+            #Records.tab-pane.fade
+              h3 Total Record
+              .table-responsive
+                table.example.table.table-striped.table-bordered.table-hover.display(style='width:100%')
+                  thead
+                    tr
+                      th picture
+                      th adhaar
+                      th first_name
+                      th last_name
+                      th email
+                      th phone
+                      th address
+                      th city
+                      th state
+                      th zip_code
+                      th gender
+                  tbody
+                    if user
+                      each member in user
+                        tr
+                          td
+                            img(src='onlineCastImage/'+member.picture, width='70px', height='50px')
+                          td #{member.adhaar}
+                          td #{member.first_name}
+                          td #{member.last_name}
+                          td #{member.email}
+                          td #{member.phone}
+                          td #{member.address}
+                          td #{member.city}
+                          td #{member.state}
+                          td #{member.zip_code}
+                          td #{member.gender}
+            #userrequest.tab-pane.fade
+              h3 User request
+              .table-responsive
+                table.example.table.table-striped.table-bordered.table-hover.display(style='width:100%')
+                  thead
+                    tr
+                      th picture
+                      th adhaar
+                      th first_name
+                      th last_name
+                      th email
+                      th phone
+                      th address
+                      th city
+                      th state
+                      th zip_code
+                      th gender
+                      th Action
+                  tbody
+                    if user2
+                      each member in user2
+                        tr
+                          td
+                            img(src='onlineCastImage/'+member.picture, width='70px', height='50px')
+                          td #{member.adhaar}
+                          td #{member.first_name}
+                          td #{member.last_name}
+                          td #{member.email}
+                          td #{member.phone}
+                          td #{member.address}
+                          td #{member.city}
+                          td #{member.state}
+                          td #{member.zip_code}
+                          td #{member.gender}
+                          td 
+                            button.btn.btn-info.promote(value=member.adhaar) Promote
+                            br
+                            br
+                            button.btn.btn-warning.reject(value=member.adhaar) Reject
+            #NewEntry.tab-pane.fade
+              .container
+                div.alert.alert-info#msg(style="display:none;")
+                form#emailForm.well.form-horizontal(action='addNewByAdmin', method='post', enctype='multipart/form-data')
+                  fieldset
+                    // Form Name
+                    legend ADD NEW ENTRY
+                    .form-group
+                      label.col-md-4.control-label Adhaar Number
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-user
+                          input.form-control(name='adhaar',id='adhaar', placeholder='adhaar card number', type='text')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label First Name
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-user
+                          input#first_name.form-control(name='first_name', placeholder='First Name', type='text')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label Last Name
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-user
+                          input#last_name.form-control(name='last_name', placeholder='Last Name', type='text')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label Date of Birth
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-calendar
+                          input#dob.form-control(name='dob', type='date')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label E-Mail
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-envelope
+                          input#email.form-control(name='email', placeholder='E-Mail Address', type='email')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label Phone #
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-mobile
+                          input#phone.form-control(name='phone', placeholder='(845)555-1212', type='text')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label Address
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-home
+                          input#address.form-control(name='address', placeholder='Address', type='text')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label City
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-building
+                          input#city.form-control(name='city', placeholder='city', type='text')
+                    // Select Basic
+                    .form-group
+                      label.col-md-4.control-label State
+                      .col-md-4.selectContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-list
+                          select#state.form-control.selectpicker(name='state')
+                            option(value=' ') Please select your state
+                            option Gujrat
+                            option Assam
+                            option Bihar
+                            option AP
+                            option UP
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label Zip Code
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-home
+                          input#zip.form-control(name='zip', placeholder='Zip Code', type='text')
+                    // Text input
+                    .form-group
+                      label.col-md-4.control-label Profile Pic
+                      .col-md-4.inputGroupContainer
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-image
+                          input.form-control(name='photo', placeholder='picture', type='file', accept='image/*')
+                    // radio checks
+                    .form-group
+                      label.col-md-4.control-label Gender
+                      .col-md-4
+                        .radio
+                          label
+                            input(type='radio', name='Gender', value='Male')
+                            |  Male
+                        .radio
+                          label
+                            input(type='radio', name='Gender', value='Female')
+                            |  Female
+                    .form-group
+                      label.col-md-4.control-label
+                      .col-md-4
+                        button#create.btn.btn-warning(type='submit')
+                          | Submit 
+                          span.fa.fa-send
+                form#printform.well.form-horizontal(action='printGenerated', method='post', enctype='multipart/form-data', style="display:none;")  
+                  .col-md-12.text-center
+                    h3  Submitted Successfully...!
+                    button#printGenerated.btn.btn-info(type='button', value='Reload Page', onClick='window.location.reload()')
+                      | Print 
+                      span.fa.fa-print
+                  .clearfix
+              // end of add new Entry
+            // /.container
+            // upload button
+            #upload.tab-pane.fade
+              .col-md-4
+              .col-md-4
+                br
+                form(action='fileUpload', method='post', enctype='multipart/form-data')
+                  span Upload excel
+                  input.form-control(type='file', name='excel', accept='image/*')
+                  br
+                  br
+                  button#upload.btn.btn-primary UPLOAD
+              .col-md-4
+              // file upload part end
+            // edit any entry
+            #edit.tab-pane.fade
+              #edit_msg
+              .h3 Total Record
+              .table-responsive
+                table.example2.table.table-striped.table-bordered.table-hover.display(style='width:100%')
+                  thead
+                    tr
+                      th picture
+                      th adhaar
+                      th first_name
+                      th last_name
+                      th email
+                      th phone
+                      th address
+                      th city
+                      th state
+                      th zip_code
+                      th gender
+                      th Action
+                  tbody
+                    if user
+                      each member in user
+                        tr
+                          td
+                            img(src='onlineCastImage/'+member.picture, width='70px', height='50px')
+                          td #{member.adhaar}
+                          td #{member.first_name}
+                          td #{member.last_name}
+                          td #{member.email}
+                          td #{member.phone}
+                          td #{member.address}
+                          td #{member.city}
+                          td #{member.state}
+                          td #{member.zip_code}
+                          td #{member.gender}
+                          td 
+                            button.btn.btn-primary.edit_val(name="edit", value=member._id) Edit
+              form#edit_form.well.form-horizontal(action='edit_data', method='post', style="display:none")
+                fieldset
+                  // Form Name
+                  legend Edit This ENTRY
+                  .form-group
+                    label.col-md-4.control-label Adhaar Number
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-user
+                        input#edit_adhaar.form-control(name='edit_adhaar', placeholder='adhaar card number', type='text', readonly) 
+                  // Text input
+                  .form-group
+                    label.col-md-4.control-label First Name
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-user
+                        input#edit_first_name.form-control(name='edit_first_name', placeholder='First Name', type='text', required)
+                  // Text input
+                  .form-group
+                    label.col-md-4.control-label Last Name
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-user
+                        input#edit_last_name.form-control(name='edit_last_name', placeholder='Last Name', type='text', required)
+                  // Text input
+                  .form-group
+                    label.col-md-4.control-label E-Mail
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-envelope
+                        input#edit_email.form-control(name='edit_email', placeholder='E-Mail Address', type='email', required)
+                  // Text input
+                  .form-group
+                    label.col-md-4.control-label Phone #
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-mobile
+                        input#edit_phone.form-control(name='edit_phone', placeholder='(845)555-1212', type='text', required)
+                  // Text input
+                  .form-group
+                    label.col-md-4.control-label Address
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-home
+                        input#edit_address.form-control(name='edit_address', placeholder='Address', type='text', required)
+                  // Text input
+                  .form-group
+                    label.col-md-4.control-label City
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-building
+                        input#edit_city.form-control(name='edit_city', placeholder='city', type='text', required)
+                  // Select Basic
+                  .form-group
+                    label.col-md-4.control-label State
+                    .col-md-4.selectContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-list
+                        select.form-control.selectpicker(name='edit_state', required)
+                          option(value='') Please select your state
+                          option Gujrat
+                          option Assam
+                          option Bihar
+                          option AP
+                          option UP
+                  // Text input
+                  .form-group
+                    label.col-md-4.control-label Zip Code
+                    .col-md-4.inputGroupContainer
+                      .input-group
+                        span.input-group-addon
+                          i.fa.fa-home
+                        input#edit_zip_code.form-control(name='edit_zip', placeholder='Zip Code', type='text', required)
+                  // radio checks
+                  .form-group
+                    label.col-md-4.control-label Gender
+                    .col-md-4
+                      .radio
+                        label
+                          input(type='radio', name='edit_Gender', value='Male', required)
+                          |  Male
+                      .radio
+                        label
+                          input(type='radio', name='edit_Gender', value='Female', required)
+                          |  Female
+                  .form-group
+                    label.col-md-4.control-label
+                    .col-md-4
+                      input.btn.btn-warning(type='submit', value='Submit')
+
+          // content will end here
+          // page end
+      // main content end
+      footer.dark-bg(style='background: #217377')
+        .text-right.navbar-fixed-bottom
+          .credits
+            a(href='technicalhub.io') Copyright © TEAM#SIX| All right reserved.
+    // container section end
+    // javascripts
+    script(src='js/jquery.js')
+    script(src='js/bootstrap.min.js')
+    // nice scroll
+    script(src='js/jquery.scrollTo.min.js')
+    script(src='js/jquery.nicescroll.js', type='text/javascript')
+    // custome script for all page
+    script(src='js/scripts.js')
+    script(src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js')
+    script(src='https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js')
+    script(src='https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js')
+    //chartjs cdn links
+    script(src='https://www.amcharts.com/lib/3/amcharts.js')
+    script(src='https://www.amcharts.com/lib/3/serial.js')
+    script(src='https://www.amcharts.com/lib/3/plugins/export/export.min.js')
+    script(src='https://www.amcharts.com/lib/3/themes/light.js')
+    script(src='javascripts/pass.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $('.example').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+      {
+        extend:'copyHtml5',
+        title:"Caste Verification List"
+      },
+      {
+        extend:'csvHtml5',
+        title:"Caste Verification List"
+      },
+      {
+        extend:'pdfHtml5',
+        title:"Caste Verification List"
+      },
+      {
+        extend:'excelHtml5',
+        title:"Caste Verification List"
+      },
+      ]
+      } );
+      } );
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $('.example1').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+      {
+        extend:'copyHtml5',
+        title:"Caste Verification List"
+      },
+      {
+        extend:'csvHtml5',
+        title:"Caste Verification List"
+      },
+      {
+        extend:'pdfHtml5',
+        title:"Caste Verification List"
+      },
+      {
+        extend:'excelHtml5',
+        title:"Caste Verification List"
+      },
+      ]
+      } );
+      } );
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $('.example2').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+      ]
+      } );
+      } );
+    script.
+      $(".edit_val").click(function(){
+        $("#edit_form").css("display","block");
+        var id = $(this).val();
+        
+        $.post('/edit_details',{id:id}, function(data,textStatus,jqXHR){
+            var jsondata = JSON.stringify(data[0]);
+            var docs = JSON.parse(jsondata);
+            $("#edit_adhaar").val(docs.adhaar);
+            $("#edit_first_name").val(docs.first_name);
+            $("#edit_last_name").val(docs.last_name);
+            $("#edit_email").val(docs.email);
+            $("#edit_phone").val(docs.phone);
+            $("#edit_address").val(docs.address);
+            $("#edit_city").val(docs.city);
+            $("#edit_state").val(docs.state);
+            $("#edit_zip_code").val(docs.zip_code);
+          });
+      });
+    script.
+      $(function(){
+      var fullUrl =  location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+      $("#create").click(function(){
+      var formData = $("#emailForm").serialize();
+      $("#msg").css("display","block");
+      $("#msg").html("<strong>Email sending Please wait..</strong>");
+      $.ajax({
+      url: fullUrl+'/send',
+      type: 'POST',
+      data: formData,
+      success: function(result) {
+      $("#msg").empty().text(result);
+      },
+      error: function(e) {
+      $("#msg").empty().text("There is some error to send email, Error code:"+e.status +", Error message:"+e.statusText);
+      },
+      dataType: "html",
+      timeout: 60000
+      });
+      });
+      });
+    script(type='text/javascript').
+      //$(".promote").each(function(){
+      //  $(this).click(function(){
+      //    var adhaar = $(this).val();
+      //    alert(adhaar);
+
+      //    //$(this).removeClass('btn-info');
+      //    //$(this).addClass('btn-success');
+      //    //$(this).prop('disabled', true);
+      //    //$(this).html('Promoted');
+      //  });        
+      //});
+      //$(".reject").each(function(){
+      //  $(this).click(function(){
+      //    var roll = $(this).val();
+      //    $.post('/select',{:roll}, function(data,textStatus,jqXHR){
+      //      //alert(data);
+      //    });
+
+      //    $(this).removeClass('btn-info');
+      //    $(this).addClass('btn-success');
+      //    $(this).prop('disabled', true);
+      //    $(this).html('Promoted');
+      //  });        
+      //});
+
+      $('.promote').click(function(){
+      var adhaar = $(this).val();
+      alert(adhaar);
+      $.post('/select',{adhaar:adhaar}, function(data,textStatus,jqXHR){
+          $(this).removeClass('btn-info');
+          $(this).addClass('btn-success');
+          $(this).prop('disabled', true);
+          $(this).html('Promoted');
+          });
+      
+      });
+
+      $('.reject').click(function(){
+      var adhaar = $(this).val();
+      alert(adhaar);
+      $.post('/select1',{adhaar:adhaar}, function(data,textStatus,jqXHR){
+          alert(data);
+          });
+      $(this).removeClass('btn-info');
+      $(this).addClass('btn-danger');
+      $(this).prop('disabled', true);
+      $(this).html('Rejected');
+      });
+    script.
+      var chart = AmCharts.makeChart("chartdiv", {
+      "theme": "light",
+      "type": "serial",
+      "startDuration": 2,
+      "dataProvider": [{
+      "country": "USA",
+      "visits": 4025,
+      "color": "#FF0F00"
+      }, {
+      "country": "China",
+      "visits": 1882,
+      "color": "#FF6600"
+      }, {
+      "country": "Japan",
+      "visits": 1809,
+      "color": "#FF9E01"
+      }, {
+      "country": "Germany",
+      "visits": 1322,
+      "color": "#FCD202"
+      }, {
+      "country": "UK",
+      "visits": 1122,
+      "color": "#F8FF01"
+      }, {
+      "country": "France",
+      "visits": 1114,
+      "color": "#B0DE09"
+      }, {
+      "country": "India",
+      "visits": 984,
+      "color": "#04D215"
+      }, {
+      "country": "Spain",
+      "visits": 711,
+      "color": "#0D8ECF"
+      }, {
+      "country": "Netherlands",
+      "visits": 665,
+      "color": "#0D52D1"
+      }, {
+      "country": "Russia",
+      "visits": 580,
+      "color": "#2A0CD0"
+      }, {
+      "country": "South Korea",
+      "visits": 443,
+      "color": "#8A0CCF"
+      }, {
+      "country": "Canada",
+      "visits": 441,
+      "color": "#CD0D74"
+      }, {
+      "country": "Brazil",
+      "visits": 395,
+      "color": "#754DEB"
+      }, {
+      "country": "Italy",
+      "visits": 386,
+      "color": "#DDDDDD"
+      }, {
+      "country": "Australia",
+      "visits": 384,
+      "color": "#999999"
+      }, {
+      "country": "Taiwan",
+      "visits": 338,
+      "color": "#333333"
+      }, {
+      "country": "Poland",
+      "visits": 328,
+      "color": "#000000"
+      }],
+      "valueAxes": [{
+      "position": "left",
+      "title": "Visitors"
+      }],
+      "graphs": [{
+      "balloonText": "[[category]]: <b>[[value]]</b>",
+      "fillColorsField": "color",
+      "fillAlphas": 1,
+      "lineAlpha": 0.1,
+      "type": "column",
+      "valueField": "visits"
+      }],
+      "depth3D": 20,
+      "angle": 30,
+      "chartCursor": {
+      "categoryBalloonEnabled": false,
+      "cursorAlpha": 0,
+      "zoomable": false
+      },
+      "categoryField": "country",
+      "categoryAxis": {
+      "gridPosition": "start",
+      "labelRotation": 90
+      },
+      "export": {
+      "enabled": true
+      }
+      });
