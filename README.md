@@ -12,5 +12,7 @@ Setup the project
 4. export all json file to the mongo db 
 5. After that start the project 
 6. Take the advantage of the project & enjoy
-7. plese see the use case diagram and solution block diagram of the project
+7. plese see the use block diagram of the solution
+![](../blockDiagram.png)
+
 
