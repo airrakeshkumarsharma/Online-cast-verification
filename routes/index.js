@@ -117,8 +117,8 @@ router.post('/userSignUp', function(req, res){
 	});
 sih.find({"email":req.body.email}, function(err, data){   
       var server  = email.server.connect({
-                                 user:    "myhub.helpline@aditya.ac.in",
-                                 password:"Thub@aditya",
+                                 user:    "",
+                                 password:"",
                                  host:    "smtp.gmail.com",
                                  ssl:     true
                               });
